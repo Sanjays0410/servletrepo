@@ -1,10 +1,8 @@
-package com.cruds.servlet;
+ package com.cruds.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cruds.db.DepartmentDAO;
 import com.cruds.demo.Department;
-import com.sun.net.httpserver.Authenticator.Success;
+
 
 /**
  * Servlet implementation class DepartmentServlet
  */
 public class DepartmentServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -37,8 +35,6 @@ public class DepartmentServlet extends HttpServlet {
 
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//doPost(request,response);
-
-
 
 		List<Department> list=new DepartmentDAO().getall();
 
@@ -58,7 +54,7 @@ public class DepartmentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		doGet(request, response);
 
 
 		String action=request.getParameter("ACTION");
@@ -75,19 +71,11 @@ public class DepartmentServlet extends HttpServlet {
 
 
 			//PrintWriter out= response.getWriter();
-			Department s=new Department( Integer.parseInt(id), name);
+			Department s=new Department( Integer.parseInt(id),name);
 			if(dao.CreateDept(s))
 			{
 
-
-				//out.println("<html> <head> <title> Success</title>" );
-				//out.println("<body> <h1> Success</h1> <body>");
-				//out.println("</html>");
-
-
-
-
-				request.setAttribute("MESSAGE", "Succuss");
+				request.setAttribute("MESSAGE", "Success");
 
 			}
 			else
@@ -97,7 +85,7 @@ public class DepartmentServlet extends HttpServlet {
 			}
 		}
 
-
+ 
 
 		if("DELETE".equals(action))
 		{
@@ -105,7 +93,7 @@ public class DepartmentServlet extends HttpServlet {
 			//System.out.println("DELETE" +id);
 			if(dao.delete(id))
 			{
-				request.setAttribute("MESSAGE", " Deleted Succuss");
+				request.setAttribute("MESSAGE", " Deleted Success");
 
 			}
 			else
@@ -122,15 +110,16 @@ public class DepartmentServlet extends HttpServlet {
 			if(dao.update(s))
 
 			{
-				request.setAttribute("MESSAGE", " Updated Succuss");
+				request.setAttribute("MESSAGE", " Updated Success");
 
 			}
 			else
 			{
 				request.setAttribute("MESSAGE", " Updated Error");
-			}
+			} 
 		}
+		
 
-		doGet(request, response);
+		
 	}
 }

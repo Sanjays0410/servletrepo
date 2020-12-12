@@ -5,9 +5,6 @@ package com.cruds.db;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-	
-
-
 	public class DBConnectionManager 
 	{
 		static 

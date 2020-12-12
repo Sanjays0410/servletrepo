@@ -10,13 +10,6 @@ public class Department {
 		this.name = name;
 	}
 	
-	
-	public Department(String name) {
-		super();
-		this.name = name;
-	}
-
-
 	public int getId() {
 		return id;
 	}

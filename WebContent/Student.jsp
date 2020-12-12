@@ -16,7 +16,6 @@
 
 		<input type="submit" name="Click" value="Create" />
 
-
 	</form>
 	<%
 	List<Student> slist=(List<Student>) request.getAttribute("STUD_LIST");
@@ -31,7 +30,7 @@
 		}
 	%>
 
-<table>
+<table border="1" bordercolor="blue">
 		<thead>
 			<tr>
 				<td>Student USN</td>

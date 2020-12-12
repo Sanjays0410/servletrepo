@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <%@page import="java.util.List"%>
 <%@page import="com.cruds.demo.Department"%>
@@ -8,14 +7,14 @@
 <title>Insert title here</title>
 
 
-<script type="text/javascript">
+ <script type="text/javascript">
 
 var seldeptid,seldeptname;
 function setData(deptid,deptname)
 {
 	//alert(deptid);
 //document.deptform.hdnDeptId.value=deptid;
-//document.deptform.hdnDeptId.value=deptname;
+//document.deptform.hdnDeptId.value=deptname; 
 seldeptid=deptid;
 seldeptname=deptname;
 
@@ -37,23 +36,23 @@ function editdept()
 	document.deptform.ACTION.value="UPDATE";
 	
 	}
-</script>
+</script> 
 </head>
 <body>
 
-	<form name="deptform" action="DepartmentServlet" method="post">
-		<label> Deptid:</label> <input type="text" name="deptid" /> <br>
+	 <form name="deptform" action="DepartmentServlet" method="post">
+		<label> Deptid:</label> <input type="text" name="deptid" /> <br> 
 		<label> Deptname:</label> <input type="text" name="deptname" /> <br>
 
 
-		<input type="hidden" name="ACTION" value="CREATE" />
-		 <input type="hidden" name="hdnDeptId" /> 
-			<input type="submit" name="btnsubmit" value="CREATE" />
+		<input type="hidden" name="ACTION" value="CREATE" /> <input
+			type="hidden" name="hdnDeptId" /> <input type="submit"
+			name="btnsubmit" value="Create" />
 
 
-	</form>
+	</form> 
 	<%
-		List<Department> dlist = (List<Department>) request.getAttribute("DEPT_LIST");
+		List<Department> dlist = (List<Department>)request.getAttribute("DEPT_LIST");
 		String msg = (String) request.getAttribute("MESSAGE");
 		if (msg != null) {
 	%>
@@ -61,7 +60,7 @@ function editdept()
 		<%=msg%></h1>
 
 	<%
-		}
+		} 
 	%>
 
 
@@ -83,8 +82,10 @@ function editdept()
 			<tr>
 				<td><%=d.getId()%></td>
 				<td><%=d.getName()%></td>
-				<td><input type="checkbox" onclick="setData(<%=d.getId()%>,'<%=d.getName() %>');" /></td>
-				
+				 <td><input type="checkbox"
+					onclick="setData(<%=d.getId()%>,'<%=d.getName()%>');"/>
+					</td> 
+ 
 			</tr>
 			<%
 				}
@@ -92,7 +93,7 @@ function editdept()
 			%>
 		</tbody>
 	</table>
-	<input type="button" value="Delete" onclick="deldept();" />
+	<input type="button" value="Delete" onclick="deldept();"/>
 	<input type="button" value="EDIT" onclick="editdept();"/>
 </body>
 </html>

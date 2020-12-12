@@ -9,13 +9,10 @@
 <body>
 
 	<h1>
-		<%=session.getAttribute("MESSAGE")%>
-		<br>Login Success
-	</h1>
+		<%=session.getAttribute("MESSAGE")%></h1>
 
 
-	<a href="Nextpage.jsp"> <input type="submit" value="Next"></a>
-
+	<a href="Login.jsp"> <input type="submit" value="Log out"></input></a>
 
 </body>
 </html>

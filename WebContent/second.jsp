@@ -7,15 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>Second page</h1>
 
+	<%
+		String name = (String) session.getAttribute("USER_NAME");
+		out.println("hi,,:)");
+	%>
 	<h1>
-		<%=session.getAttribute("MESSAGE")%>
-		<br>Login Success
-	</h1>
-
-
-	<a href="Nextpage.jsp"> <input type="submit" value="Next"></a>
-
-
+		<%=name%></h1>
+	<a href="SecondServlet"> Second servlet</a>
 </body>
 </html>
